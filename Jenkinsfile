@@ -17,9 +17,9 @@ pipeline {
                 script {
                     echo "Building the Docker image..."
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-credential', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                        sh 'docker build -t athfaldocker/demo-app:1.0 .'
+                        sh 'docker build -t athfaldocker/demo-app:2.0 .'
                         sh 'echo $PASS | docker login -u $USER --password-stdin'
-                        sh 'docker push athfaldocker/demo-app:1.0'
+                        sh 'docker push athfaldocker/demo-app:2.0'
                     }
                 }
             }
